@@ -38,7 +38,6 @@ migrate_working_dir/
 /linux/
 /macos/
 /test/
-/web/
 /windows/
 .metadata
 pubspec.lock
