@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:inha_capstone_project_byoa/screens/login_pages/login_screen.dart';
+import 'package:inha_capstone_project_byoa/screens/byoa_pages/page_setting/responsive.dart';
 import 'package:inha_capstone_project_byoa/screens/login_pages/sign_up_screen.dart';
 
 final GoRouter route = GoRouter(
@@ -7,7 +7,7 @@ final GoRouter route = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => LoginScreen(),
+      builder: (context, state) => BYOA(),
     ),
     GoRoute(
       path: '/signUp',

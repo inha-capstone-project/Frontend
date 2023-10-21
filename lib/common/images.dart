@@ -1,20 +1,23 @@
 const bannerImg = 'assets/img/BYOA.png';
-const mainIcon = 'assets/img/main_icon';
+const mainIcon = 'assets/img/main_icon.png';
 
-// Template
-const buttonIcon = 'assets/templates/button.png';
-const calendarIcon = 'assets/templates/calendar.png';
-const checkBoxIcon = 'assets/templates/check_box.png';
-const containerIcon = 'assets/templates/container.png';
-const dividerIcon = 'assets/templates/divider.png';
-const gridViewIcon = 'assets/templates/grid_view.png';
-const iconButtonIcon = 'assets/templates/icon_button.png';
-const imageIcon = 'assets/templates/image.png';
-const listTileIcon = 'assets/templates/list_tile.png';
-const listViewIcon = 'assets/templates/list_view.png';
-const radioButtonIcon = 'assets/templates/radio_button.png';
-const textFieldIcon = 'assets/templates/text_field.png';
-const textIcon = 'assets/templates/text.png';
-const columnIcon = 'assets/templates/column.png';
-const rowIcon = 'assets/templates/row.png';
-const playerIcon = 'assets/templates/player.png';
+// Layout Elements
+const containerIcon = 'assets/img/templates/container.png';
+const columnIcon = 'assets/img/templates/column.png';
+const rowIcon = 'assets/img/templates/row.png';
+const listViewIcon = 'assets/img/templates/list_view.png';
+const gridViewIcon = 'assets/img/templates/grid_view.png';
+const dividerIcon = 'assets/img/templates/divider.png';
+// Base Elements
+const textIcon = 'assets/img/templates/text.png';
+const imageIcon = 'assets/img/templates/image.png';
+const buttonIcon = 'assets/img/templates/button.png';
+const iconIcon = 'assets/img/templates/icon.png';
+const iconButtonIcon = 'assets/img/templates/icon_button.png';
+const listTileIcon = 'assets/img/templates/list_tile.png';
+const calendarIcon = 'assets/img/templates/calendar.png';
+const checkBoxIcon = 'assets/img/templates/check_box.png';
+const playerIcon = 'assets/img/templates/player.png';
+// Form Elements
+const textFieldIcon = 'assets/img/templates/text_field.png';
+const radioButtonIcon = 'assets/img/templates/radio_button.png';
