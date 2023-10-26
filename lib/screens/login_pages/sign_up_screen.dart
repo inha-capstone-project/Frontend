@@ -15,7 +15,7 @@ class SignUpScreen extends StatelessWidget {
         elevation: 0,
         title: Text(
           '회원가입',
-          style: tsMain().copyWith(color: Colors.black),
+          style: textStyle1().copyWith(color: Colors.black),
         ),
       ),
       body: Padding(
@@ -44,7 +44,10 @@ class SignUpScreen extends StatelessWidget {
                     onPressed: () {
                       // 함수 필요
                     },
-                    child: Text('회원가입', style: tsMain()),
+                    child: Text(
+                      '회원가입',
+                      style: textStyle1(),
+                    ),
                   ),
                 ),
               ],
