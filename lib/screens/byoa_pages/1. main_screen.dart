@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'package:inha_capstone_project_byoa/common/color.dart';
 import 'package:inha_capstone_project_byoa/common/images.dart';
+import 'package:inha_capstone_project_byoa/data/provider.dart';
 import 'package:inha_capstone_project_byoa/data/templates.dart';
 import 'package:inha_capstone_project_byoa/common/text_style.dart';
 import 'package:inha_capstone_project_byoa/screens/byoa_pages/2.%20mobile_screen.dart';
+import 'package:provider/provider.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -30,6 +33,16 @@ class _MainScreenState extends State<MainScreen> {
             flex: 6,
             child: Container(
               color: mainColor,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                // OverFlow로 인하여 임시로 싱글차일드스크롤뷰로 감쌈
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: Provider.of<Properties>(context).properties,
+                  ),
+                ),
+              ),
             ),
           ),
         ],
@@ -111,14 +124,17 @@ class _MainScreenState extends State<MainScreen> {
       flex: 6,
       child: Container(
         color: mainColor,
-        child: Column(
-          children: [
-            templates('Layout Elements', layoutElements),
-            SizedBox(height: 30.0),
-            templates('Base Elements', baseElements),
-            SizedBox(height: 30.0),
-            templates('Form Elements', formElements),
-          ],
+        // OverFlow로 인하여 임시로 싱글차일드스크롤뷰로 감쌈
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              templates('Layout Elements', layoutElements),
+              SizedBox(height: 30.0),
+              templates('Base Elements', baseElements),
+              SizedBox(height: 30.0),
+              templates('Form Elements', formElements),
+            ],
+          ),
         ),
       ),
     );

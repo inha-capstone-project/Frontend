@@ -1,33 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:inha_capstone_project_byoa/data/provider.dart';
 import 'package:inha_capstone_project_byoa/screens/login_pages/login_screen.dart';
+import 'package:provider/provider.dart';
 
 // 모바일화면에 배치된 모든 위젯을이 List에 전부 저장됨
 List<Widget> widgetList = [];
 // 각 템플릿의 id값들
 int key = 0;
-Widget empty = Container();
-bool isTrue = false;
+// 텍스트필드 높이 값
+double valueHeight = 0;
+// 텍스트필드 가로 값
+double valueWidth = 0;
+// ColorPicker로 지정한 컬러 값
+Color valueColor = Color(0xFFFFFFFF);
 
-Widget containerTemplate({required int index, required Widget child}) {
+Widget containerTemplate() {
   return DragTarget(
-    key: Key(
-      index.toString(),
-    ),
     builder: (context, candidateData, rejectedData) {
       return Container(
-        color: Colors.amber,
-        height: 100,
-        child: empty == Container() ? Text('hello') : empty,
+        color: Provider.of<Properties>(context).color,
+        width: Provider.of<Properties>(context).width,
+        height: Provider.of<Properties>(context).height,
       );
-    },
-    onAccept: (data) {
-      if (data == 7) {
-        empty = Image.network(
-            'https://scsgozneamae10236445.cdn.ntruss.com/data2/content/image/2021/08/29/.cache/512/202108291158953.jpg');
-      }
-      if (data == 6) {
-        empty = Text('테스트 텍스트 입니다. 이 텍스트는 Container의 자식 입니다.');
-      }
     },
   );
 }

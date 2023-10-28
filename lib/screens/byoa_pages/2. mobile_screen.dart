@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:inha_capstone_project_byoa/data/provider.dart';
+import 'package:provider/provider.dart';
 import '../../data/datas.dart';
 
 class MobileScreen extends StatefulWidget {
@@ -45,10 +47,16 @@ class _MobileScreenState extends State<MobileScreen> {
               switch (data) {
                 case 0:
                   widgetList.add(
-                    containerTemplate(
-                        index: key,
-                        child: Image.network(
-                            'https://scsgozneamae10236445.cdn.ntruss.com/data2/content/image/2021/08/29/.cache/512/202108291158953.jpg')),
+                    // 컨네이너가 모바일 화면에 추가됐을시 마우스로 클릭시 상태창 띄우기 위하여 제스처디텍터 사용
+                    GestureDetector(
+                      key: Key(key.toString()),
+                      child: containerTemplate(),
+                      onTap: () {
+                        setState(() {
+                          Provider.of<Properties>(context,listen: false).changeProperties();
+                        });
+                      },
+                    ),
                   );
               }
               key += 1;
