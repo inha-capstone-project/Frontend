@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:inha_capstone_project_byoa/data/provider.dart';
-import 'package:provider/provider.dart';
+import 'package:get/get.dart';
+import 'package:inha_capstone_project_byoa/data/getx_controller.dart';
 import '../../data/datas.dart';
+import '../../data/test.dart';
 
 class MobileScreen extends StatefulWidget {
   const MobileScreen({super.key});
@@ -23,17 +24,21 @@ class _MobileScreenState extends State<MobileScreen> {
           // 위젯을 이동할 수 있도록 하는 위젯
           return ReorderableListView.builder(
             itemBuilder: (context, index) {
-              return widgetList[index];
+              return Get.find<GetxListController>().widgetList[index];
             },
-            itemCount: widgetList.length,
+            itemCount: Get.find<GetxListController>().widgetList.length,
             onReorder: (oldIndex, newIndex) {
               if (oldIndex < newIndex) {
                 newIndex -= 1;
               }
               setState(
                 () {
-                  final item = widgetList.removeAt(oldIndex);
-                  widgetList.insert(newIndex, item);
+                  final item = Get.find<GetxListController>()
+                      .widgetList
+                      .removeAt(oldIndex);
+                  Get.find<GetxListController>()
+                      .widgetList
+                      .insert(newIndex, item);
                 },
               );
             },
@@ -45,19 +50,128 @@ class _MobileScreenState extends State<MobileScreen> {
             () {
               // 각 케이스로 0 ~ n 까지의 값들을 처리
               switch (data) {
+                // Container
                 case 0:
-                  widgetList.add(
-                    // 컨네이너가 모바일 화면에 추가됐을시 마우스로 클릭시 상태창 띄우기 위하여 제스처디텍터 사용
-                    GestureDetector(
-                      key: Key(key.toString()),
-                      child: containerTemplate(),
-                      onTap: () {
-                        setState(() {
-                          Provider.of<Properties>(context,listen: false).changeProperties();
-                        });
-                      },
-                    ),
-                  );
+                  Get.find<GetxListController>().widgetList.add(
+                        // 컨네이너가 모바일 화면에 추가됐을시 마우스로 클릭시 상태창 띄우기 위하여 제스처디텍터 사용
+                        GestureDetector(
+                          key: Key(key.toString()),
+                          child: containerTemplate(),
+                          onTap: () {
+                            Get.find<GetxScreenController>().addScreen(
+                              containerProperties(
+                                Get.find<GetxListController>()
+                                    .widgetList[key - 1]
+                                    .key,
+                              ),
+                            );
+                          },
+                        ),
+                      );
+                // Divider
+                case 5:
+                  Get.find<GetxListController>().widgetList.add(
+                        GestureDetector(
+                          key: Key(key.toString()),
+                          child: dividerTemplate(),
+                          onTap: () =>
+                              Get.find<GetxScreenController>().addScreen(
+                            dividerProperties(),
+                          ),
+                        ),
+                      );
+                case 6:
+                  Get.find<GetxListController>().widgetList.add(
+                        GestureDetector(
+                          key: Key(key.toString()),
+                          child: textTemplate(),
+                          onTap: () {
+                            Get.find<GetxScreenController>().addScreen(
+                              textProperties(),
+                            );
+                          },
+                        ),
+                      );
+                case 7:
+                  Get.find<GetxListController>().widgetList.add(
+                        GestureDetector(
+                          key: Key(key.toString()),
+                          child: imageTemplate(),
+                          onTap: () {
+                            Get.find<GetxScreenController>().addScreen(
+                              imageProperties(),
+                            );
+                          },
+                        ),
+                      );
+                case 8:
+                  Get.find<GetxListController>().widgetList.add(
+                        GestureDetector(
+                          key: Key(key.toString()),
+                          child: buttonTemplate(),
+                          onTap: () {
+                            Get.find<GetxScreenController>().addScreen(
+                              buttonProperties(),
+                            );
+                          },
+                        ),
+                      );
+                case 9:
+                  Get.find<GetxListController>().widgetList.add(
+                        GestureDetector(
+                          key: Key(key.toString()),
+                          child: iconTemplate(),
+                          onTap: () {
+                            Get.find<GetxScreenController>().addScreen(
+                              iconProperties(context),
+                            );
+                          },
+                        ),
+                      );
+                case 10:
+                  Get.find<GetxListController>().widgetList.add(
+                        GestureDetector(
+                          key: Key(key.toString()),
+                          child: iconButtonTemplate(),
+                          onTap: () {
+                            Get.find<GetxScreenController>().addScreen(
+                              iconButtonProperties(context),
+                            );
+                          },
+                        ),
+                      );
+                case 11:
+                  Get.find<GetxListController>().widgetList.add(
+                        GestureDetector(
+                          key: Key(key.toString()),
+                          child: listTileTemplate(),
+                          onTap: () {
+                            Get.find<GetxScreenController>().addScreen(
+                              listTileProperties(),
+                            );
+                          },
+                        ),
+                      );
+                case 13:
+                  Get.find<GetxListController>().widgetList.add(
+                        GestureDetector(
+                          key: Key(key.toString()),
+                          child: checkBoxTemplate(),
+                          onTap: () {},
+                        ),
+                      );
+                case 14:
+                  Get.find<GetxListController>().widgetList.add(
+                        GestureDetector(
+                          key: Key(key.toString()),
+                          child: youtubeTemplate(),
+                          onTap: () {
+                            Get.find<GetxScreenController>().addScreen(
+                              youtubeProperties(),
+                            );
+                          },
+                        ),
+                      );
               }
               key += 1;
             },
