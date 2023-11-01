@@ -16,6 +16,11 @@ dependencies:
   go_router: ^11.0.0
   flutter_colorpicker: ^1.0.3
   provider: ^6.0.5
+  get:
+  cached_network_image: ^3.3.0
+  flutter_iconpicker: ^3.2.4
+  pod_player: ^0.2.1
+
 
 dev_dependencies:
   flutter_test:

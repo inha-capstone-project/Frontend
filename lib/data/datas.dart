@@ -1,107 +1,172 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:inha_capstone_project_byoa/data/provider.dart';
-import 'package:inha_capstone_project_byoa/screens/login_pages/login_screen.dart';
-import 'package:provider/provider.dart';
+import 'package:get/get.dart';
+import 'package:inha_capstone_project_byoa/data/getx_controller.dart';
+import 'package:pod_player/pod_player.dart';
 
-// 모바일화면에 배치된 모든 위젯을이 List에 전부 저장됨
-List<Widget> widgetList = [];
 // 각 템플릿의 id값들
 int key = 0;
-// 텍스트필드 높이 값
-double valueHeight = 0;
-// 텍스트필드 가로 값
-double valueWidth = 0;
-// ColorPicker로 지정한 컬러 값
-Color valueColor = Color(0xFFFFFFFF);
+final valueList = [
+  'FontWeight.w100',
+  'FontWeight.w200',
+  'FontWeight.w300',
+  'FontWeight.w400',
+  'FontWeight.w500',
+  'FontWeight.w600',
+  'FontWeight.w700',
+  'FontWeight.w800',
+  'FontWeight.w900',
+];
 
+// 0번
 Widget containerTemplate() {
   return DragTarget(
     builder: (context, candidateData, rejectedData) {
-      return Container(
-        color: Provider.of<Properties>(context).color,
-        width: Provider.of<Properties>(context).width,
-        height: Provider.of<Properties>(context).height,
+      return GetBuilder<GetxContainerController>(
+        init: GetxContainerController(),
+        builder: (_) {
+          return Container(
+            width: Get.find<GetxContainerController>().width,
+            height: Get.find<GetxContainerController>().height,
+            color: Get.find<GetxContainerController>().color,
+          );
+        },
       );
     },
   );
 }
 
-Widget buttonTemplate({required int index}) {
-  return ElevatedButton(
-    key: Key(index.toString()),
-    onPressed: () {},
-    child: Text('Button'),
-  );
-}
-
-Widget dividerTemplate({required int index}) {
-  return Divider(
-    color: Colors.black,
-    thickness: 3.0,
-    key: Key(
-      index.toString(),
-    ),
-  );
-}
-
-Widget textTemplate({required int index, required String title}) {
-  return Text(
-    key: Key(
-      index.toString(),
-    ),
-    title,
-  );
-}
-
-Widget imageTemplate({required int index, required String url}) {
-  return Image.network(
-    url,
-    key: Key(
-      index.toString(),
-    ),
-  );
-}
-
-Widget iconTemplate({required int index}) {
-  return Icon(
-    Icons.adb,
-    key: Key(
-      index.toString(),
-    ),
-  );
-}
-
-Widget iconButtonTemplate({required int index, required context}) {
-  return IconButton(
-    key: Key(index.toString()),
-    onPressed: () {
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: (_) => LoginScreen()));
+// 5번
+Widget dividerTemplate() {
+  return GetBuilder<GetxDividerController>(
+    builder: (_) {
+      return Divider(
+        color: Get.find<GetxDividerController>().color,
+        thickness: Get.find<GetxDividerController>().thickness,
+      );
     },
-    icon: Icon(
-      Icons.home,
-    ),
   );
 }
 
-Widget listTileTemplate({required int index}) {
-  return ListTile(
-    key: Key(index.toString()),
-    title: Text('인하대학교 공과대학'),
-    subtitle: Text('인천광역시 학익동 64-2'),
-    leading: Text('주소'),
-    trailing: Icon(Icons.exit_to_app),
+Widget textTemplate() {
+  return GetBuilder<GetxTextController>(
+    builder: (_) {
+      return Text(
+        Get.find<GetxTextController>().title,
+        style: TextStyle(
+          fontSize: Get.find<GetxTextController>().fontSize,
+          fontWeight: Get.find<GetxTextController>().fontWeight,
+          color: Get.find<GetxTextController>().color,
+        ),
+      );
+    },
   );
 }
 
-Widget textFieldTemplate({required int index}) {
-  return TextField(
-    key: Key(index.toString()),
-    decoration: InputDecoration(
-      border: InputBorder.none,
-      fillColor: Colors.grey[400],
-    ),
-    keyboardType: TextInputType.multiline,
-    maxLines: null,
+Widget imageTemplate() {
+  return GetBuilder<GetxImageController>(
+    builder: (_) {
+      return CachedNetworkImage(
+        imageUrl: Get.find<GetxImageController>().url,
+        width: Get.find<GetxImageController>().width,
+        height: Get.find<GetxImageController>().height,
+        placeholder: (context, url) => CircularProgressIndicator(),
+        errorWidget: (context, url, error) => Column(
+          children: [
+            Icon(Icons.error),
+            Text(
+              '이미지 로드 오류',
+            ),
+          ],
+        ),
+      );
+    },
+  );
+}
+
+Widget buttonTemplate() {
+  return GetBuilder<GetxButtonController>(
+    builder: (_) {
+      return AbsorbPointer(
+        absorbing: true,
+        child: ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            minimumSize: Size(Get.find<GetxButtonController>().width,
+                Get.find<GetxButtonController>().height),
+            backgroundColor: Get.find<GetxButtonController>().backgroundColor,
+            foregroundColor: Get.find<GetxButtonController>().foregroundColor,
+            elevation: Get.find<GetxButtonController>().elevation,
+          ),
+          child: Text(Get.find<GetxButtonController>().title),
+        ),
+      );
+    },
+  );
+}
+
+Widget iconTemplate() {
+  return GetBuilder<GetxIconController>(
+    builder: (_) {
+      return Icon(
+        Get.find<GetxIconController>().icon,
+        size: Get.find<GetxIconController>().size,
+        color: Get.find<GetxIconController>().color,
+      );
+    },
+  );
+}
+
+Widget iconButtonTemplate() {
+  return GetBuilder<GetxIconButtonController>(
+    builder: (_) {
+      return IconButton(
+        onPressed: () {},
+        icon: Icon(
+          Get.find<GetxIconButtonController>().icon,
+          size: Get.find<GetxIconButtonController>().size,
+          color: Get.find<GetxIconButtonController>().color,
+        ),
+      );
+    },
+  );
+}
+
+Widget listTileTemplate() {
+  return GetBuilder<GetxListTileController>(
+    builder: (_) {
+      return ListTile(
+        leading: Get.find<GetxListTileController>().leading,
+        title: Get.find<GetxListTileController>().title,
+        subtitle: Get.find<GetxListTileController>().subTitle,
+        trailing: Get.find<GetxListTileController>().trailing,
+        titleTextStyle: TextStyle(
+            color: Get.find<GetxListTileController>().titleFontColor,
+            fontSize: Get.find<GetxListTileController>().titleFontSize),
+        leadingAndTrailingTextStyle: TextStyle(
+          color: Get.find<GetxListTileController>().leadingAndTrailingFontColor,
+          fontSize:
+              Get.find<GetxListTileController>().leadingAndTrailingFontSize,
+        ),
+      );
+    },
+  );
+}
+
+Widget checkBoxTemplate() {
+  return GetBuilder<GetxCheckBoxController>(
+    builder: (_) {
+      return Checkbox(
+        value: Get.find<GetxCheckBoxController>().isValue,
+        onChanged: (value) =>
+            Get.find<GetxCheckBoxController>().changeCheckBoxBool(value),
+      );
+    },
+  );
+}
+
+Widget youtubeTemplate() {
+  return PodVideoPlayer(
+    controller: Get.find<GetxYoutubeController>().controller,
   );
 }

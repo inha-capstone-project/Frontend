@@ -1,27 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:inha_capstone_project_byoa/data/provider.dart';
-import 'package:provider/provider.dart';
+import 'package:get/get.dart';
+import 'package:inha_capstone_project_byoa/data/getx_controller.dart';
 import 'route/route.dart';
 
 void main() {
+  Get.put(GetxListController());
+  Get.put(GetxDividerController());
+  Get.put(GetxTextController());
+  Get.put(GetxImageController());
+  Get.put(GetxButtonController());
+  Get.put(GetxIconController());
+  Get.put(GetxIconButtonController());
+  Get.put(GetxListTileController());
+  Get.put(GetxCheckBoxController());
+  Get.put(GetxYoutubeController());
+
   runApp(
     // 상태관리를 위해 Provider 사용
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(
-          create: (context) => Properties(
-            width: 100,
-            height: 100,
-            color: Colors.blue,
-          ),
-        ),
-      ],
-      child: MaterialApp.router(
-        theme: ThemeData(
-          scaffoldBackgroundColor: Colors.white,
-        ),
-        debugShowCheckedModeBanner: false,
-        routerConfig: route,
+    MaterialApp.router(
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
       ),
     ),
   );

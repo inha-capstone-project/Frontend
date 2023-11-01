@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
 import 'package:inha_capstone_project_byoa/common/color.dart';
 import 'package:inha_capstone_project_byoa/common/images.dart';
-import 'package:inha_capstone_project_byoa/data/provider.dart';
+import 'package:inha_capstone_project_byoa/data/getx_controller.dart';
 import 'package:inha_capstone_project_byoa/data/templates.dart';
 import 'package:inha_capstone_project_byoa/common/text_style.dart';
 import 'package:inha_capstone_project_byoa/screens/byoa_pages/2.%20mobile_screen.dart';
@@ -36,11 +36,13 @@ class _MainScreenState extends State<MainScreen> {
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 // OverFlow로 인하여 임시로 싱글차일드스크롤뷰로 감쌈
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: Provider.of<Properties>(context).properties,
-                  ),
+                child: GetBuilder<GetxScreenController>(
+                  init: GetxScreenController(),
+                  builder: (_) {
+                    return SingleChildScrollView(
+                      child: Get.find<GetxScreenController>().properties,
+                    );
+                  },
                 ),
               ),
             ),
