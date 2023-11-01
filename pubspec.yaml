@@ -21,6 +21,7 @@ dependencies:
   flutter_iconpicker: ^3.2.4
   pod_player: ^0.2.1
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

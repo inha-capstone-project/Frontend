@@ -6,6 +6,7 @@ import 'package:inha_capstone_project_byoa/data/getx_controller.dart';
 import 'package:inha_capstone_project_byoa/data/templates.dart';
 import 'package:inha_capstone_project_byoa/common/text_style.dart';
 import 'package:inha_capstone_project_byoa/screens/byoa_pages/2.%20mobile_screen.dart';
+import 'package:provider/provider.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

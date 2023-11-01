@@ -21,8 +21,6 @@ void main() {
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
       ),
-      debugShowCheckedModeBanner: false,
-      routerConfig: route,
     ),
   );
 }
