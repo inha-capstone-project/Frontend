@@ -23,9 +23,49 @@ jobs:
         run: flutter config --enable-web
       
       - name: Build
-        run: flutter build web
+        run: flutter build web --release --no-tree-shake-icons
 
-      - name: List directory
+      - name: Zip builded iamge
         run: |
-          ls -al
-      
+          zip -r buildFile.zip build/web/
+
+      - name: Upload Builded zip File Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: builded-zip-artifact
+          path: buildFile.zip
+          
+  copyZip:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Builded zip File Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: builded-zip-artifact
+
+      - name: Copy Zip File to Goorm
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.GOORM_WEB_HOST }}
+          username: ${{ secrets.GOORM_WEB_USERNAME }}
+          password: ${{ secrets.GOORM_WEB_PASSWORD }}
+          port: ${{ secrets.GOORM_WEB_PORT }}
+          source: "buildFile.zip"
+          target: '/workspace/BYOA_Web'
+
+  unzip:
+    needs: copyZip
+    runs-on: ubuntu-latest
+    steps:
+      - name: Unzip and Execute on Goorm
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.GOORM_WEB_HOST }}
+          username: ${{ secrets.GOORM_WEB_USERNAME }}
+          password: ${{ secrets.GOORM_WEB_PASSWORD }}
+          port: ${{ secrets.GOORM_WEB_PORT }
+          script: |
+            cd /workspace/BYOA_Web
+            unzip -o buildFile.zip -d /workspace/BYOA_Web/capstone
+            rm buildFile.zip
