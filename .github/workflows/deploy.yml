@@ -64,7 +64,7 @@ jobs:
           host: ${{ secrets.GOORM_WEB_HOST }}
           username: ${{ secrets.GOORM_WEB_USERNAME }}
           password: ${{ secrets.GOORM_WEB_PASSWORD }}
-          port: ${{ secrets.GOORM_WEB_PORT }
+          port: ${{ secrets.GOORM_WEB_PORT }}
           script: |
             cd /workspace/BYOA_Web
             unzip -o buildFile.zip -d /workspace/BYOA_Web/capstone
