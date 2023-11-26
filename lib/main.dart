@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:inha_capstone_project_byoa/data/getx_controller.dart';
-import 'route/route.dart';
+import 'package:inha_capstone_project_byoa/pages/byoa_pages/responsive.dart';
+import 'package:inha_capstone_project_byoa/pages/login/login_page.dart';
+import 'package:inha_capstone_project_byoa/pages/post_page.dart';
+import 'data/getx/common/list_controller_getx.dart';
+import 'pages/login/register_page.dart';
 
 void main() {
   Get.put(GetxListController());
-  Get.put(GetxDividerController());
-  Get.put(GetxTextController());
-  Get.put(GetxImageController());
-  Get.put(GetxButtonController());
-  Get.put(GetxIconController());
-  Get.put(GetxIconButtonController());
-  Get.put(GetxListTileController());
-  Get.put(GetxCheckBoxController());
-  Get.put(GetxYoutubeController());
-
   runApp(
-    // 상태관리를 위해 Provider 사용
-    MaterialApp.router(
+    GetMaterialApp(
+      getPages: [
+        GetPage(name: '/', page: () => LoginPage()),
+        GetPage(name: '/register', page: () => RegisterPage()),
+        GetPage(name: '/byoa', page: () => BYOA()),
+        GetPage(name: '/post', page: () => PostPage()),
+      ],
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
       ),
+      debugShowCheckedModeBanner: false,
     ),
   );
 }

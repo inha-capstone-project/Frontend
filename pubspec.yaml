@@ -20,6 +20,11 @@ dependencies:
   cached_network_image: ^3.3.0
   flutter_iconpicker: ^3.2.4
   pod_player: ^0.2.1
+  http:
+  fluttertoast: ^8.2.3
+  dio: ^4.0.0
+  http_parser: ^4.0.2
+  flutter_signature_pad: ^3.0.1
 
 
 dev_dependencies:
