@@ -2,7 +2,8 @@ const bannerImg = 'assets/img/BYOA.png';
 const mainIcon = 'assets/img/main_icon.png';
 
 // Layout Elements
-const containerIcon = 'assets/img/templates/container.png';
+const containerColumnIcon = 'assets/img/templates/container_column.png';
+const containerRowIcon = 'assets/img/templates/container_row.png';
 const columnIcon = 'assets/img/templates/column.png';
 const rowIcon = 'assets/img/templates/row.png';
 const listViewIcon = 'assets/img/templates/list_view.png';
@@ -17,7 +18,7 @@ const iconButtonIcon = 'assets/img/templates/icon_button.png';
 const listTileIcon = 'assets/img/templates/list_tile.png';
 const calendarIcon = 'assets/img/templates/calendar.png';
 const checkBoxIcon = 'assets/img/templates/check_box.png';
-const playerIcon = 'assets/img/templates/player.png';
+const videoIcon = 'assets/img/templates/video.png';
 // Form Elements
 const textFieldIcon = 'assets/img/templates/text_field.png';
 const radioButtonIcon = 'assets/img/templates/radio_button.png';
