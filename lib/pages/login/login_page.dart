@@ -34,7 +34,7 @@ class LoginPage extends StatelessWidget {
             token = arguments[1];
             userId = arguments[2];
             id = arguments[3];
-            
+
             log('nickName: $nickName\ntoken: $token\nuserId: $userId\nid: $id');
 
             flutterToast('로그인 성공!', '#00b09b', '#96c93d');

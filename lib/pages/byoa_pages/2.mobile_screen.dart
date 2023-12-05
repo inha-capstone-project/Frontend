@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:inha_capstone_project_byoa/data/getx/0.%20appbar_controller_getx.dart';
+import 'package:inha_capstone_project_byoa/data/properties/0.%20appbar_properties.dart';
 import 'package:inha_capstone_project_byoa/data/templates/11.check_box_template.dart';
 import 'package:inha_capstone_project_byoa/data/templates/14.radio_button_template.dart';
 
 import '../../data/getx/common/list_controller_getx.dart';
+import '../../data/getx/common/screen_controller_getx.dart';
 import '../../data/templates/1.container_row_template.dart';
 import '../../data/templates/13.text_filed_template.dart';
 import '../../data/templates/2.container_column_template.dart';
@@ -25,28 +28,36 @@ class MobileScreen extends StatefulWidget {
 
 class _MobileScreenState extends State<MobileScreen> {
   @override
+  void initState() {
+    super.initState();
+    Get.put(GetxAppBarController());
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Build your own app'),
-      ),
+      appBar: MyAppBar(),
       // Draggable로 이동된 데이터를 받아주는 함수
       body: DragTarget(
         builder: (context, candidateData, rejectedData) {
           // 위젯을 이동할 수 있도록 하는 위젯
-          return ReorderableListView.builder(
-            itemBuilder: (context, index) {
-              return Get.find<GetxListController>().widgetList[index];
-            },
-            itemCount: Get.find<GetxListController>().widgetList.length,
-            onReorder: (oldIndex, newIndex) {
-              if (oldIndex < newIndex) {
-                newIndex -= 1;
-              }
-              setState(
-                () {
-                  final item = Get.find<GetxListController>().widgetList.removeAt(oldIndex);
-                  Get.find<GetxListController>().widgetList.insert(newIndex, item);
+          return GetBuilder<GetxListController>(
+            builder: (_) {
+              return ReorderableListView.builder(
+                itemBuilder: (context, index) {
+                  return _.widgetList[index];
+                },
+                itemCount: _.widgetList.length,
+                onReorder: (oldIndex, newIndex) {
+                  if (oldIndex < newIndex) {
+                    newIndex -= 1;
+                  }
+                  setState(
+                    () {
+                      final item = _.widgetList.removeAt(oldIndex);
+                      _.widgetList.insert(newIndex, item);
+                    },
+                  );
                 },
               );
             },
@@ -56,44 +67,65 @@ class _MobileScreenState extends State<MobileScreen> {
         onAccept: (String data) {
           switch (data) {
             case 'container_row':
-              Get.find<GetxListController>().widgetList.add(ContainerRowTemplate(key: UniqueKey()));
+              Get.find<GetxListController>().addWidget(ContainerRowTemplate(key: UniqueKey()));
               break;
             case 'container_column':
-              Get.find<GetxListController>().widgetList.add(ContainerColumnTemplate(key: UniqueKey()));
+              Get.find<GetxListController>().addWidget(ContainerColumnTemplate(key: UniqueKey()));
               break;
             case 'divider':
-              Get.find<GetxListController>().widgetList.add(DividerTemplate(key: UniqueKey()));
+              Get.find<GetxListController>().addWidget(DividerTemplate(key: UniqueKey()));
               break;
             case 'text':
-              Get.find<GetxListController>().widgetList.add(TextTemplate(key: UniqueKey()));
+              Get.find<GetxListController>().addWidget(TextTemplate(key: UniqueKey()));
               break;
             case 'image':
-              Get.find<GetxListController>().widgetList.add(ImageTemplate(key: UniqueKey()));
+              Get.find<GetxListController>().addWidget(ImageTemplate(key: UniqueKey()));
               break;
             case 'button':
-              Get.find<GetxListController>().widgetList.add(ButtonTemplate(key: UniqueKey()));
+              Get.find<GetxListController>().addWidget(ButtonTemplate(key: UniqueKey()));
               break;
             case 'icon':
-              Get.find<GetxListController>().widgetList.add(IconTemplate(key: UniqueKey()));
+              Get.find<GetxListController>().addWidget(IconTemplate(key: UniqueKey()));
               break;
             case 'listTile':
-              Get.find<GetxListController>().widgetList.add(ListTileTemplate(key: UniqueKey()));
+              Get.find<GetxListController>().addWidget(ListTileTemplate(key: UniqueKey()));
               break;
             case 'checkBox':
-              Get.find<GetxListController>().widgetList.add(CheckBoxTemplate(key: UniqueKey()));
+              Get.find<GetxListController>().addWidget(CheckBoxTemplate(key: UniqueKey()));
               break;
             case 'media':
-              Get.find<GetxListController>().widgetList.add(MediaPlayerTemplate(key: UniqueKey()));
+              Get.find<GetxListController>().addWidget(MediaPlayerTemplate(key: UniqueKey()));
               break;
             case 'textField':
-              Get.find<GetxListController>().widgetList.add(TextFiledTemplate(key: UniqueKey()));
+              Get.find<GetxListController>().addWidget(TextFiledTemplate(key: UniqueKey()));
               break;
             case 'radioButton':
-              Get.find<GetxListController>().widgetList.add(RadioButtonTemplate(key: UniqueKey()));
+              Get.find<GetxListController>().addWidget(RadioButtonTemplate(key: UniqueKey()));
               break;
           }
         },
       ),
     );
   }
+}
+
+class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const MyAppBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(onTap: () {
+      Get.find<GetxScreenController>().addScreen(AppBarProperties());
+    }, child: GetBuilder<GetxAppBarController>(
+      builder: (_) {
+        return AppBar(
+          title: Text(Get.find<GetxAppBarController>().text),
+          backgroundColor: Get.find<GetxAppBarController>().color,
+        );
+      },
+    ));
+  }
+
+  @override
+  Size get preferredSize => Size.fromHeight(kToolbarHeight); // AppBar의 표준 높이
 }

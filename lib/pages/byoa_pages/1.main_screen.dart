@@ -10,6 +10,7 @@ import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:inha_capstone_project_byoa/common/color.dart';
 import 'package:inha_capstone_project_byoa/common/data_info.dart';
+import 'package:inha_capstone_project_byoa/data/getx/common/list_controller_getx.dart';
 import 'package:inha_capstone_project_byoa/data/start_draggable_data.dart';
 import 'package:inha_capstone_project_byoa/common/text_style.dart';
 import 'package:inha_capstone_project_byoa/pages/byoa_pages/2.mobile_screen.dart';
@@ -24,11 +25,9 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  /**************************/
   final key = GlobalKey();
   Uint8List? imageBytes;
   get http => null;
-  /**************************/
 
   @override
   Widget build(BuildContext context) {
@@ -49,18 +48,29 @@ class _MainScreenState extends State<MainScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.save),
+        child: const Icon(Icons.arrow_right_alt_rounded, size: 50),
         onPressed: () async {
           imageBytes = await captureImage();
           Get.toNamed('/post', arguments: imageBytes);
-
+          print(imageBytes);
           setState(() {});
         },
       ),
       body: Row(
         children: [
           templateBar(),
-          RepaintBoundary(key: key, child: centerMobileScreen()),
+          SizedBox(
+            width: 800,
+            child: Scaffold(
+              body: RepaintBoundary(key: key, child: CenterScreen()),
+              floatingActionButton: FloatingActionButton(
+                onPressed: () {
+                  Get.find<GetxListController>().getListRemove();
+                },
+                child: Text('최근\n위젯\n삭제'),
+              ),
+            ),
+          ),
           Expanded(
             flex: 6,
             child: Container(
@@ -107,30 +117,6 @@ class _MainScreenState extends State<MainScreen> {
           children: children,
         ),
       ],
-    );
-  }
-
-  Widget centerMobileScreen() {
-    double width = 800;
-    return Container(
-      color: Colors.white,
-      width: width,
-      child: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Container(
-            width: width / 1.5,
-            height: 700,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20.0),
-              border: Border.all(
-                width: 7.0,
-              ),
-            ),
-            child: MobileScreen(),
-          ),
-        ),
-      ),
     );
   }
 
@@ -235,5 +221,33 @@ class _MainScreenState extends State<MainScreen> {
     } else {
       print('No image to upload.');
     }
+  }
+}
+
+class CenterScreen extends StatelessWidget {
+  const CenterScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      width: MediaQuery.of(context).size.width,
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Container(
+            width: 800 / 1.5,
+            height: 700,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20.0),
+              border: Border.all(
+                width: 7.0,
+              ),
+            ),
+            child: MobileScreen(),
+          ),
+        ),
+      ),
+    );
   }
 }

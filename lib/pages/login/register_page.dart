@@ -14,7 +14,6 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   // text controller
   final TextEditingController usernameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
   final TextEditingController nickNameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPwController = TextEditingController();
@@ -45,43 +44,43 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
-        centerTitle: false,
+        centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Text('회원가입', style: appBarTS()),
+        title: Text('회원가입 페이지', style: appBarTS()),
       ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(25.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(width: 300, child: TextFieldWidget(text: '아이디를 입력해주세요', obscureText: false, controller: usernameController)),
-              SizedBox(width: 10),
-              const SizedBox(height: 20),
-              SizedBox(width: 300, child: TextFieldWidget(text: '닉네임을 입력하세요', obscureText: false, controller: nickNameController)),
-              const SizedBox(height: 20),
-              SizedBox(width: 300, child: TextFieldWidget(text: '패스워드를 입력하세요', obscureText: true, controller: passwordController)),
-              const SizedBox(height: 20),
-              SizedBox(width: 300, child: TextFieldWidget(text: '패스워드를 다시 입력하세요', obscureText: true, controller: confirmPwController)),
-              const SizedBox(height: 20),
-              SizedBox(width: 300, child: TextFieldWidget(text: '이메일을 입력하세요', obscureText: false, controller: emailController)),
-              const SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.only(left: 50, right: 50, top: 15),
-                child: SizedBox(
-                  width: 200,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black87,
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(width: 300, child: TextFieldWidget(text: '아이디를 입력해주세요', obscureText: false, controller: usernameController)),
+                SizedBox(width: 10),
+                const SizedBox(height: 20),
+                SizedBox(width: 300, child: TextFieldWidget(text: '닉네임을 입력하세요', obscureText: false, controller: nickNameController)),
+                const SizedBox(height: 20),
+                SizedBox(width: 300, child: TextFieldWidget(text: '패스워드를 입력하세요', obscureText: true, controller: passwordController)),
+                const SizedBox(height: 20),
+                SizedBox(width: 300, child: TextFieldWidget(text: '패스워드를 다시 입력하세요', obscureText: true, controller: confirmPwController)),
+                const SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.only(left: 50, right: 50, top: 15),
+                  child: SizedBox(
+                    width: 200,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.black87,
+                      ),
+                      onPressed: _register,
+                      child: Text('회원가입'),
                     ),
-                    onPressed: _register,
-                    child: Text('회원가입'),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

@@ -78,6 +78,7 @@ class DivierProperties extends StatelessWidget {
             }
           },
         ),
+        divider(),
       ],
     );
   }

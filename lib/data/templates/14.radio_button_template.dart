@@ -27,9 +27,11 @@ class _RadioButtonTemplateState extends State<RadioButtonTemplate> {
             value: null,
             groupValue: null,
             onChanged: (value) {
-              setState(() {
-                // 함수 추가
-              });
+              setState(
+                () {
+                  // 함수 추가
+                },
+              );
             },
           ),
         ),

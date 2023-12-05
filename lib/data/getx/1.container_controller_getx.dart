@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class GetxContainerController extends GetxController {
-  double height = 300;
-  double width = 300;
+  double height = 100;
+  double width = 100;
   Color color = Colors.grey[300]!;
 
   // 컨네이너 높이 변경

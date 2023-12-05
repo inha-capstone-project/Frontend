@@ -23,15 +23,18 @@ class ListTileTemplate extends StatelessWidget {
         builder: (_) {
           return Padding(
             padding: _.padding,
-            child: ListTile(
-              leading: _.leading,
-              title: _.title,
-              subtitle: _.subTitle,
-              trailing: _.trailing,
-              titleTextStyle: TextStyle(color: _.titleFontColor, fontSize: _.titleFontSize),
-              leadingAndTrailingTextStyle: TextStyle(
-                color: _.leadingAndTrailingFontColor,
-                fontSize: _.leadingAndTrailingFontSize,
+            child: SizedBox(
+              width: 300,
+              child: ListTile(
+                leading: _.leading,
+                title: _.title,
+                subtitle: _.subTitle,
+                trailing: _.trailing,
+                titleTextStyle: TextStyle(color: _.titleFontColor, fontSize: _.titleFontSize),
+                leadingAndTrailingTextStyle: TextStyle(
+                  color: _.leadingAndTrailingFontColor,
+                  fontSize: _.leadingAndTrailingFontSize,
+                ),
               ),
             ),
           );
