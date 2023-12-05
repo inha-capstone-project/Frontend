@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class GetxImageController extends GetxController {
-  String url = 'https://monthly.chosun.com/up_fd/Mdaily/2017-09/bimg_thumb/2017042000056_0.jpg';
-  double width = 100;
-  double height = 100;
+  String url = 'https://picsum.photos/150/150?random';
+  double width = 150;
+  double height = 150;
 
   EdgeInsets padding = EdgeInsets.zero;
 

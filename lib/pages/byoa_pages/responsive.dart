@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inha_capstone_project_byoa/common/data_info.dart';
 import 'package:inha_capstone_project_byoa/pages/byoa_pages/1.main_screen.dart';
 import 'package:inha_capstone_project_byoa/pages/byoa_pages/2.mobile_screen.dart';
 
@@ -34,8 +35,9 @@ class BYOA extends StatelessWidget {
     return Scaffold(
       body: ResponsiveLayout(
         // desktopBody: MainScreen(nickname: Get.arguments[0], token: Get.arguments[1]),
+        // desktopBody: token != '' ? MainScreen() : Center(child: Text('잘못된 접근방식')),
         desktopBody: MainScreen(),
-        mobileBody: MobileScreen(),
+        mobileBody: token != '' ? MobileScreen() : Center(child: Text('잘못된 접근방식')),
       ),
     );
   }

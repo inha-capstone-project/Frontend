@@ -8,7 +8,6 @@ import '../properties/6.image_properties.dart';
 
 class ImageTemplate extends StatelessWidget {
   ImageTemplate({Key? key}) : super(key: key);
-
   final GetxImageController imageController = Get.put(GetxImageController(), tag: UniqueKey().toString());
 
   @override
