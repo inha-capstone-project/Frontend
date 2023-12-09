@@ -22,3 +22,5 @@ const videoIcon = 'assets/img/templates/video.png';
 // Form Elements
 const textFieldIcon = 'assets/img/templates/text_field.png';
 const radioButtonIcon = 'assets/img/templates/radio_button.png';
+// Example Elements
+const calculatorIcon = 'assets/img/templates/calculator.png';

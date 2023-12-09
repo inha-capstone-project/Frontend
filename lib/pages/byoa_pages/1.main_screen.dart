@@ -99,7 +99,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget templates(String title, List<Draggable> children) {
     return ExpansionTile(
       collapsedIconColor: Colors.white,
-      initiallyExpanded: true,
+      initiallyExpanded: false,
       title: Text(
         title,
         style: TextStyle(color: Colors.white),
@@ -135,6 +135,10 @@ class _MainScreenState extends State<MainScreen> {
               templates('Base Elements', baseElements),
               SizedBox(height: 30.0),
               templates('Form Elements', formElements),
+              SizedBox(height: 30.0),
+              Divider(color: Colors.white),
+              // **************************************************** //
+              templates('Example', exampleElements),
             ],
           ),
         ),

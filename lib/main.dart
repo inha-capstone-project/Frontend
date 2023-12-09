@@ -8,7 +8,7 @@ import 'data/getx/common/list_controller_getx.dart';
 import 'pages/login/register_page.dart';
 import 'pages/post_page2.dart';
 
-void main() {
+void main() async {
   Get.put(GetxListController());
   runApp(
     GetMaterialApp(

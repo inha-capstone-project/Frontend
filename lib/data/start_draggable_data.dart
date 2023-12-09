@@ -56,6 +56,7 @@ List<Draggable> baseElements = [
     child: _builderContainer(Icons.video_library_sharp, 'Video'),
   ),
 ];
+
 List<Draggable> formElements = [
   Draggable(
     data: 'textField',
@@ -66,6 +67,19 @@ List<Draggable> formElements = [
     data: 'radioButton',
     feedback: Image.asset(radioButtonIcon, width: 50),
     child: _builderContainer(Icons.checklist_rounded, 'RadioButton'),
+  ),
+];
+
+List<Draggable> exampleElements = [
+  Draggable(
+    data: 'calculator',
+    feedback: Image.asset(calculatorIcon, width: 50),
+    child: _builderContainer(Icons.calculate_rounded, 'Calculator'),
+  ),
+  Draggable(
+    data: 'snack',
+    feedback: Image.asset(calculatorIcon, width: 50),
+    child: _builderContainer(Icons.gamepad_rounded, 'Snack Game'),
   ),
 ];
 

@@ -100,7 +100,7 @@ class _PostPageState extends State<PostPage> {
         // Listen to the controller and update the UI when it updates.
         child: ValueListenableBuilder<PainterControllerValue>(
             valueListenable: controller,
-            child: const Text("Draw your app additionally and attach a description"),
+            child: const Text("Draw your app"),
             builder: (context, _, child) {
               return AppBar(
                 title: child,

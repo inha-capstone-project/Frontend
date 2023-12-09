@@ -5,6 +5,8 @@ import 'package:inha_capstone_project_byoa/data/getx/0.%20appbar_controller_getx
 import 'package:inha_capstone_project_byoa/data/properties/0.%20appbar_properties.dart';
 import 'package:inha_capstone_project_byoa/data/templates/11.check_box_template.dart';
 import 'package:inha_capstone_project_byoa/data/templates/14.radio_button_template.dart';
+import 'package:inha_capstone_project_byoa/data/templates/example/calculator.dart';
+import 'package:inha_capstone_project_byoa/data/templates/example/snack.dart';
 
 import '../../data/getx/common/list_controller_getx.dart';
 import '../../data/getx/common/screen_controller_getx.dart';
@@ -101,6 +103,12 @@ class _MobileScreenState extends State<MobileScreen> {
               break;
             case 'radioButton':
               Get.find<GetxListController>().addWidget(RadioButtonTemplate(key: UniqueKey()));
+              break;
+            case 'calculator':
+              Get.find<GetxListController>().addWidget(Calculator(key: UniqueKey()));
+              break;
+            case 'snack':
+              Get.find<GetxListController>().addWidget(Snack(key: UniqueKey()));
               break;
           }
         },
