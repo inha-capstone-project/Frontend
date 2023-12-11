@@ -1,3 +1,5 @@
+// ignore_for_file: hash_and_equals
+
 import 'dart:async';
 import 'dart:collection';
 import 'dart:ui' as ui;
@@ -432,9 +434,7 @@ class PainterControllerValue {
             selectedObjectDrawable == other.selectedObjectDrawable);
   }
 
-  @override
-  int get hashCode => hashValues(
-      hashList(_drawables), background, settings, selectedObjectDrawable);
+
 }
 
 /// Private class that is used internally to represent no

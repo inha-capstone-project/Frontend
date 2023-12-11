@@ -1,3 +1,5 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers
+
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
 import 'package:inha_capstone_project_byoa/flutter_painter.dart';

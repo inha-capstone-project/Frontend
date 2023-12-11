@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class GetxAppBarController extends GetxController {
-  String text = 'Build your own app';
+  String text = 'First set your app name';
   Color color = Colors.blue;
 
   // 앱바 타이틀 설정

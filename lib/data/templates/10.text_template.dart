@@ -23,12 +23,14 @@ class TextTemplate extends StatelessWidget {
         builder: (_) {
           return Padding(
             padding: _.padding,
-            child: Text(
-              _.title,
-              style: TextStyle(
-                fontSize: _.fontSize,
-                fontWeight: _.fontWeight,
-                color: _.color,
+            child: Material(
+              child: Text(
+                _.title,
+                style: TextStyle(
+                  fontSize: _.fontSize,
+                  fontWeight: _.fontWeight,
+                  color: _.color,
+                ),
               ),
             ),
           );

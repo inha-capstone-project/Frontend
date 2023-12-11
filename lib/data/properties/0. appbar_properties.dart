@@ -14,6 +14,7 @@ class AppBarProperties extends StatelessWidget {
       children: [
         propertieHeaderText('AppBar 설정'),
         divider(),
+        propertieSubHeaderText('App Title'),
         strTextField(
           hintText: 'Title',
           onChanged: (value) {
@@ -27,9 +28,11 @@ class AppBarProperties extends StatelessWidget {
         divider(),
         propertieSubHeaderText('Color'),
         SizedBox(height: 10),
-        pickColor(onColorChanged: (value) {
-          Get.find<GetxAppBarController>().setAppBarColor(value);
-        }),
+        pickColor(
+          onColorChanged: (value) {
+            Get.find<GetxAppBarController>().setAppBarColor(value);
+          },
+        ),
       ],
     );
   }

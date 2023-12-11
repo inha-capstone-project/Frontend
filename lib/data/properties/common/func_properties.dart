@@ -7,7 +7,7 @@ Center propertieHeaderText(title) {
 }
 
 Text propertieSubHeaderText(title) {
-  return Text(title, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18));
+  return Text(title, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20));
 }
 
 Divider divider() {
@@ -28,15 +28,15 @@ Padding numTextField({required String hintText, required int maxLength, required
 
       decoration: InputDecoration(
         filled: true,
-        fillColor: Colors.green[50],
+        fillColor: Colors.white,
         counterStyle: TextStyle(color: Colors.white),
-
+        //
         border: OutlineInputBorder(
           borderSide: BorderSide(color: Colors.white),
           borderRadius: BorderRadius.circular(6),
         ),
         //
-        hintStyle: TextStyle(color: Colors.blue.shade400, fontWeight: FontWeight.w500),
+        hintStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
         hintText: hintText,
       ),
     ),
@@ -56,7 +56,7 @@ Padding strTextField({required String hintText, required Function(String) onChan
 
       decoration: InputDecoration(
         filled: true,
-        fillColor: Colors.green[50],
+        fillColor: Colors.white,
         counterStyle: TextStyle(color: Colors.white),
 
         border: OutlineInputBorder(
@@ -64,7 +64,7 @@ Padding strTextField({required String hintText, required Function(String) onChan
           borderRadius: BorderRadius.circular(6),
         ),
         //
-        hintStyle: TextStyle(color: Colors.blue.shade400, fontWeight: FontWeight.w500),
+        hintStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
         hintText: hintText,
       ),
     ),

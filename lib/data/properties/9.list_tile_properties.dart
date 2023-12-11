@@ -35,12 +35,6 @@ class ListTileProperties extends StatelessWidget {
         SizedBox(height: 10),
         propertieSubHeaderText('ListTile Title Color'),
         pickColor(onColorChanged: (color) => Get.find<GetxListTileController>(tag: tag).setTitleFontColor(color)),
-        divider(),
-        propertieSubHeaderText('ListTile Padding'),
-        numTextField(hintText: 'top', maxLength: 3, onChanged: (value) => Get.find<GetxListTileController>(tag: tag).setListTilePadding(top: double.parse(value))),
-        numTextField(hintText: 'bottom', maxLength: 3, onChanged: (value) => Get.find<GetxListTileController>(tag: tag).setListTilePadding(bottom: double.parse(value))),
-        numTextField(hintText: 'left', maxLength: 3, onChanged: (value) => Get.find<GetxListTileController>(tag: tag).setListTilePadding(left: double.parse(value))),
-        numTextField(hintText: 'right', maxLength: 3, onChanged: (value) => Get.find<GetxListTileController>(tag: tag).setListTilePadding(right: double.parse(value))),
       ],
     );
   }

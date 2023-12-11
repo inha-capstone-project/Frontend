@@ -33,6 +33,8 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 5,
         title: Text(
           'Make your own App',
           style: appBarTS(),
@@ -42,7 +44,12 @@ class _MainScreenState extends State<MainScreen> {
           Center(
             child: Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Text('유저 ID : $userId'),
+              child: Text(
+                userId.isNotEmpty ? '유저 ID : $userId' : '로그인 되지 않음',
+                style: TextStyle(
+                  color: Colors.black,
+                ),
+              ),
             ),
           ),
         ],
@@ -96,10 +103,10 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   /// 이 함수를 통해 title, children 두 인자를 받아 반복해서 동일한 반복되는 GridView 위젯을 반환
-  Widget templates(String title, List<Draggable> children) {
+  Widget templates(String title, List<Draggable> children, bool isTrue) {
     return ExpansionTile(
       collapsedIconColor: Colors.white,
-      initiallyExpanded: false,
+      initiallyExpanded: isTrue,
       title: Text(
         title,
         style: TextStyle(color: Colors.white),
@@ -130,15 +137,15 @@ class _MainScreenState extends State<MainScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              templates('Layout Elements', layoutElements),
+              templates('Layout Elements', layoutElements, true),
               SizedBox(height: 30.0),
-              templates('Base Elements', baseElements),
+              templates('Base Elements', baseElements, true),
               SizedBox(height: 30.0),
-              templates('Form Elements', formElements),
+              templates('Form Elements', formElements, true),
               SizedBox(height: 30.0),
               Divider(color: Colors.white),
               // **************************************************** //
-              templates('Example', exampleElements),
+              templates('Example', exampleElements, false),
             ],
           ),
         ),
@@ -240,7 +247,7 @@ class CenterScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Container(
-            width: 800 / 1.5,
+            width: 530,
             height: 700,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20.0),

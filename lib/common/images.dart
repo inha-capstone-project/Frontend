@@ -2,9 +2,7 @@ const bannerImg = 'assets/img/BYOA.png';
 const mainIcon = 'assets/img/main_icon.png';
 
 // Layout Elements
-const containerColumnIcon = 'assets/img/templates/container_column.png';
-const containerRowIcon = 'assets/img/templates/container_row.png';
-const columnIcon = 'assets/img/templates/column.png';
+const container = 'assets/img/templates/container.png';
 const rowIcon = 'assets/img/templates/row.png';
 const listViewIcon = 'assets/img/templates/list_view.png';
 const gridViewIcon = 'assets/img/templates/grid_view.png';

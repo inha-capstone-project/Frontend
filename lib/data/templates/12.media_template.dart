@@ -24,8 +24,12 @@ class MediaPlayerTemplate extends StatelessWidget {
         builder: (_) {
           return Padding(
             padding: _.padding,
-            child: PodVideoPlayer(
-              controller: Get.find<GetxYoutubeController>(tag: tag).controller,
+            child: SizedBox(
+              width: 500,
+              height: 300,
+              child: PodVideoPlayer(
+                controller: Get.find<GetxYoutubeController>(tag: tag).controller,
+              ),
             ),
           );
         },

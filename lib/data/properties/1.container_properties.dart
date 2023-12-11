@@ -33,7 +33,6 @@ class ContainerProperties extends StatelessWidget {
         pickColor(onColorChanged: (value) {
           Get.find<GetxContainerController>(tag: tag).changeContainerColor(value);
         }),
-        divider(),
       ],
     );
   }
