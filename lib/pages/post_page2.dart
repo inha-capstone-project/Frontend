@@ -10,7 +10,6 @@ import 'package:dio/dio.dart' as dioo;
 import '../common/data_info.dart';
 
 import 'dart:html' as html;
-import 'dart:convert';
 
 class PostPage2 extends StatefulWidget {
   PostPage2({super.key});

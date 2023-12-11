@@ -6,8 +6,8 @@ class GetxButtonController extends GetxController {
   Color backgroundColor = Colors.black;
   Color foregroundColor = Colors.blue;
   double elevation = 30.0;
-  double width = 100;
-  double height = 100;
+  double width = 60;
+  double height = 40;
 
   EdgeInsets padding = EdgeInsets.zero;
 

@@ -22,12 +22,6 @@ class IconProperties extends StatelessWidget {
         numTextField(hintText: '30', maxLength: 3, onChanged: (value) => Get.find<GetxIconController>(tag: tag).setIconSize(double.parse(value))),
         divider(),
         pickColor(onColorChanged: (color) => Get.find<GetxIconController>(tag: tag).setIconColor(color)),
-        divider(),
-        propertieSubHeaderText('Icon Padding'),
-        numTextField(hintText: 'top', maxLength: 3, onChanged: (value) => Get.find<GetxIconController>(tag: tag).setIconPadding(top: double.parse(value))),
-        numTextField(hintText: 'bottom', maxLength: 3, onChanged: (value) => Get.find<GetxIconController>(tag: tag).setIconPadding(bottom: double.parse(value))),
-        numTextField(hintText: 'left', maxLength: 3, onChanged: (value) => Get.find<GetxIconController>(tag: tag).setIconPadding(left: double.parse(value))),
-        numTextField(hintText: 'right', maxLength: 3, onChanged: (value) => Get.find<GetxIconController>(tag: tag).setIconPadding(right: double.parse(value))),
       ],
     );
   }

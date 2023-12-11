@@ -4,7 +4,7 @@ import 'package:inha_capstone_project_byoa/data/templates/6.image_template.dart'
 import '../getx/1.container_controller_getx.dart';
 import '../getx/common/screen_controller_getx.dart';
 import '../properties/1.container_properties.dart';
-import '1.container_row_template.dart';
+import '1.container_template.dart';
 import '10.text_template.dart';
 import '11.check_box_template.dart';
 import '12.media_template.dart';

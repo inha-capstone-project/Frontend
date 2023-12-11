@@ -51,52 +51,6 @@ class ImageProperties extends StatelessWidget {
             }
           },
         ),
-        divider(),
-        propertieSubHeaderText('패딩 설정 (top, bottom, left, right)'),
-        numTextField(
-          hintText: 'top',
-          maxLength: 3,
-          onChanged: (value) {
-            try {
-              Get.find<GetxImageController>(tag: tag).setImagePadding(top: double.parse(value));
-            } catch (e) {
-              Get.find<GetxImageController>(tag: tag).setImagePadding(top: 0);
-            }
-          },
-        ),
-        numTextField(
-          hintText: 'bottom',
-          maxLength: 3,
-          onChanged: (value) {
-            try {
-              Get.find<GetxImageController>(tag: tag).setImagePadding(bottom: double.parse(value));
-            } catch (e) {
-              Get.find<GetxImageController>(tag: tag).setImagePadding(bottom: 0);
-            }
-          },
-        ),
-        numTextField(
-          hintText: 'left',
-          maxLength: 3,
-          onChanged: (value) {
-            try {
-              Get.find<GetxImageController>(tag: tag).setImagePadding(left: double.parse(value));
-            } catch (e) {
-              Get.find<GetxImageController>(tag: tag).setImagePadding(left: 0);
-            }
-          },
-        ),
-        numTextField(
-          hintText: 'right',
-          maxLength: 3,
-          onChanged: (value) {
-            try {
-              Get.find<GetxImageController>(tag: tag).setImagePadding(right: double.parse(value));
-            } catch (e) {
-              Get.find<GetxImageController>(tag: tag).setImagePadding(right: 0);
-            }
-          },
-        ),
       ],
     );
   }

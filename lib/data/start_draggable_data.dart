@@ -3,20 +3,15 @@ import '../common/images.dart';
 
 List<Draggable> layoutElements = [
   Draggable(
-    data: 'container_row',
-    feedback: Image.asset(containerRowIcon, width: 50),
-    child: _builderContainer(Icons.arrow_right_alt_rounded, 'Row'),
+    data: 'container',
+    feedback: Image.asset(container, width: 50),
+    child: _builderContainer(Icons.check_box_outline_blank_rounded, 'Box'),
   ),
-  Draggable(
-    data: 'container_column',
-    feedback: Image.asset(containerColumnIcon, width: 50),
-    child: _builderContainer(Icons.arrow_downward_rounded, 'Column'),
-  ),
-  Draggable(
-    data: 'divider',
-    feedback: Image.asset(dividerIcon, width: 50),
-    child: _builderContainer(Icons.linear_scale_outlined, 'Divider'),
-  ),
+  // Draggable(
+  //   data: 'divider',
+  //   feedback: Image.asset(dividerIcon, width: 50),
+  //   child: _builderContainer(Icons.linear_scale_outlined, 'Divider'),
+  // ),
 ];
 
 List<Draggable> baseElements = [
@@ -50,11 +45,11 @@ List<Draggable> baseElements = [
     feedback: Image.asset(checkBoxIcon, width: 50),
     child: _builderContainer(Icons.check_box_outlined, 'CheckBox'),
   ),
-  Draggable(
-    data: 'media',
-    feedback: Image.asset(videoIcon, width: 50),
-    child: _builderContainer(Icons.video_library_sharp, 'Video'),
-  ),
+  // Draggable(
+  //   data: 'media',
+  //   feedback: Image.asset(videoIcon, width: 50),
+  //   child: _builderContainer(Icons.video_library_sharp, 'Video'),
+  // ),
 ];
 
 List<Draggable> formElements = [

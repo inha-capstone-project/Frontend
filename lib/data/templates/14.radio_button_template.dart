@@ -23,16 +23,18 @@ class _RadioButtonTemplateState extends State<RadioButtonTemplate> {
         tag: tag,
         builder: (_) => Padding(
           padding: _.padding,
-          child: Radio(
-            value: null,
-            groupValue: null,
-            onChanged: (value) {
-              setState(
-                () {
-                  // 함수 추가
-                },
-              );
-            },
+          child: Material(
+            child: Radio(
+              value: null,
+              groupValue: null,
+              onChanged: (value) {
+                setState(
+                  () {
+                    // 함수 추가
+                  },
+                );
+              },
+            ),
           ),
         ),
       ),

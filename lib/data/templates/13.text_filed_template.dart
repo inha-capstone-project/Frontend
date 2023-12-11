@@ -22,16 +22,19 @@ class TextFiledTemplate extends StatelessWidget {
         tag: tag,
         builder: (_) => Padding(
           padding: _.padding,
-          child: AbsorbPointer(
-            child: TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16.0),
-                  //borderSide: BorderSide.none, Outline 실선 제거
+          child: SizedBox(
+            width: 300,
+            child: Material(
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16.0),
+                    //borderSide: BorderSide.none, Outline 실선 제거
+                  ),
+                  labelText: 'TextField',
+                  fillColor: Colors.grey[200], // 배경색
+                  filled: true, // 배경색 적용 유무
                 ),
-                labelText: 'TextField',
-                fillColor: Colors.grey[200], // 배경색
-                filled: true, // 배경색 적용 유무
               ),
             ),
           ),

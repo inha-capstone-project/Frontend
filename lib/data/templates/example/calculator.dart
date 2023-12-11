@@ -23,32 +23,36 @@ class Calculator extends StatelessWidget {
       _renderContainer('3', Colors.grey, 1),
       _renderContainer('+', Colors.orange, 1),
     ];
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(right: 40, top: 20),
-              child: Text('0', style: TextStyle(fontSize: 80, fontWeight: FontWeight.bold)),
-            ),
-          ],
-        ),
-        GridView.count(
-          childAspectRatio: 2 / 1.5,
-          shrinkWrap: true,
-          crossAxisCount: 4,
-          children: lists,
-        ),
-        Row(
-          children: [
-            _renderContainer('0', Colors.grey, 2),
-            _renderContainer('.', Colors.grey, 1),
-            _renderContainer('=', Colors.orange, 1),
-          ],
-        ),
-      ],
+    return SizedBox(
+      width: 530,
+      height: 700,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 40, top: 20),
+                child: Text('0', style: TextStyle(fontSize: 80, fontWeight: FontWeight.bold)),
+              ),
+            ],
+          ),
+          GridView.count(
+            childAspectRatio: 2 / 1.5,
+            shrinkWrap: true,
+            crossAxisCount: 4,
+            children: lists,
+          ),
+          Row(
+            children: [
+              _renderContainer('0', Colors.grey, 2),
+              _renderContainer('.', Colors.grey, 1),
+              _renderContainer('=', Colors.orange, 1),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
